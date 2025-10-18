@@ -1,0 +1,131 @@
+/* ===================== Reset & Global ===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--text-light);
+  background-color: var(--bg-light);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* ===================== Root Theme Variables ===================== */
+:root {
+  /* ===== Primary Brand Colors ===== */
+  --primary-blue: #5CC7F2;
+  --primary-dark-blue: #002C5F;
+  --white: #ffffff;
+  --black: #000000;
+  --text-light: #404040;
+  --text-dark: #113C77;
+
+  /* ===== Accent Colors ===== */
+  --accent-gold: #F7941D;
+  --accent-green: #7AC943;
+  --accent-yellow: #FCEE21;
+  --accent-pink: #FF6FA3;
+  --accent-purple: #9B51E0;
+  --accent-hover: #36A9E1;
+  --accent-sky: #36A9E1;
+  --accent-red: #E74C3C;
+
+  /* ===== Background Colors ===== */
+  --bg-dark: #002C5F;
+  --bg-light: #F7FBFF;
+  --bg-muted: #F3F6FA;
+  --input-bg: #E6F4FB;
+  --card-bg: #ffffff;
+  --header-bg: #F0F4FF;
+  --footer-bg: #001A3C;
+
+  /* ===== Borders ===== */
+  --border-gray: #C9D9EB;
+  --border-light: #E0E7F1;
+  --border-dark: #001A3C;
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 20px;
+  --border-radius-pill: 50px;
+
+  /* ===== Shadows ===== */
+  --shadow-light: rgba(92, 199, 242, 0.15);
+  --shadow-medium: rgba(0, 44, 95, 0.2);
+  --shadow-dark: rgba(0, 0, 0, 0.25);
+
+  /* ===== Gradients ===== */
+  --gradient-primary: linear-gradient(135deg, #5CC7F2, #002C5F);
+  --gradient-accent: linear-gradient(135deg, #FCEE21, #F7941D, #7AC943);
+  --gradient-button-hover: linear-gradient(135deg, #36A9E1, #002C5F);
+
+  /* ===== Text on Background Helpers ===== */
+  --text-on-dark: #ffdd00;
+  --text-on-light: #0D2B57;
+  --text-on-accent: #ffffff;
+  --text-on-muted: #404040;
+
+  /* ===== Buttons & Interactions ===== */
+  --btn-padding-sm: 8px 16px;
+  --btn-padding-md: 12px 24px;
+  --btn-padding-lg: 14px 36px;
+  --btn-font-size-sm: 0.85rem;
+  --btn-font-size-md: 1rem;
+  --btn-font-size-lg: 1.2rem;
+  --btn-transition: all 0.3s ease;
+
+  /* ===== Form Inputs ===== */
+  --input-padding: 12px 16px;
+  --input-font-size: 1rem;
+  --input-border: 1px solid var(--border-gray);
+  --input-border-focus: 1px solid var(--primary-blue);
+  --input-border-radius: var(--border-radius-md);
+  --input-bg-focus: #ffffff;
+
+  /* ===== Alerts & Notifications ===== */
+  --alert-success-bg: #DFF2E4;
+  --alert-success-text: #28A745;
+  --alert-warning-bg: #FFF4E5;
+  --alert-warning-text: #F7941D;
+  --alert-error-bg: #FDECEA;
+  --alert-error-text: #E74C3C;
+  --alert-info-bg: #E6F4FB;
+  --alert-info-text: #0056D2;
+
+  /* ===== Typography Sizes ===== */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 2.5rem;
+  --font-size-4xl: 3rem;
+  --font-size-5xl: 4rem;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 800;
+
+  /* ===== Z-index Helpers ===== */
+  --z-dropdown: 1000;
+  --z-modal: 1100;
+  --z-tooltip: 1200;
+  --z-toast: 1300;
+
+  /* ===== Transition Helpers ===== */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.4s ease;
+  --transition-slow: 0.6s ease;
+
+  /* ===== Spacing Helpers ===== */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+}

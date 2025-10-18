@@ -1,0 +1,243 @@
+/* ---------- Contact Section ---------- */
+.contact {
+  background: var(--bg-light);
+  color: var(--text-dark);
+  font-family: "Poppins", sans-serif;
+  padding: 80px 20px;
+  scroll-behavior: smooth;
+}
+
+/* ---------- Layout ---------- */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 60px;
+  max-width: 1300px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* ---------- Form Section ---------- */
+.formSection {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.title {
+  font-size: clamp(1.8rem, 2.5vw + 1rem, 2.5rem);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 15px;
+  color: var(--primary-dark-blue);
+  position: relative;
+}
+
+.title::after {
+  content: "";
+  width: 120px;
+  height: 4px;
+  background: var(--primary-blue);
+  display: block;
+  margin: 12px auto 0 auto;
+  border-radius: var(--border-radius-sm);
+}
+
+.description {
+  color: var(--text-light);
+  line-height: 1.8;
+  font-size: clamp(1rem, 0.8vw + 0.9rem, 1.05rem);
+  margin-bottom: 30px;
+  max-width: 800px;
+}
+
+/* ---------- Form ---------- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.row input,
+.form textarea {
+  flex: 1;
+  min-width: 120px;
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--border-gray);
+  border-radius: var(--border-radius-md);
+  font-size: 1rem;
+  background: var(--white);
+  color: var(--text-dark);
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px var(--shadow-light);
+  box-sizing: border-box;
+}
+
+.row input:focus,
+.form textarea:focus {
+  border-color: var(--primary-blue);
+  outline: none;
+  box-shadow: 0 0 8px var(--shadow-medium);
+}
+
+.form button {
+  background: var(--accent-gold);
+  color: var(--white);
+  border: none;
+  padding: 14px 28px;
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: fit-content;
+  align-self: flex-start;
+  letter-spacing: 0.5px;
+  box-shadow: 0 6px 18px var(--shadow-medium);
+}
+
+.form button:hover {
+  background: var(--primary-blue);
+  transform: scale(1.05);
+  box-shadow: 0 8px 22px var(--shadow-dark);
+}
+
+/* ---------- Details Section ---------- */
+.detailsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.mainImage {
+  width: 100%;
+  height: auto;
+  max-height: 450px;
+  object-fit: cover;
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 8px 24px var(--shadow-medium);
+  transition: transform 0.3s ease;
+}
+
+.mainImage:hover {
+  transform: scale(1.02);
+}
+
+/* ---------- Cards ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
+  padding: 20px;
+  box-shadow: 0 8px 20px var(--shadow-light);
+  border-left: 6px solid var(--primary-blue);
+  transition: all 0.3s ease;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 28px var(--shadow-medium);
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 15px;
+  color: var(--primary-dark-blue);
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: var(--text-dark);
+}
+
+.card a {
+  color: var(--text-dark);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.card a:hover {
+  color: var(--primary-blue);
+  text-decoration: underline;
+}
+
+/* ---------- Map ---------- */
+.mapWrapper {
+  margin-top: 70px;
+  width: 100%;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: 0 8px 24px var(--shadow-light);
+}
+
+.mapWrapper iframe {
+  width: 100%;
+  height: 450px;
+  border: none;
+  transition: transform 0.3s ease;
+  border-radius: var(--border-radius-lg);
+}
+
+.mapWrapper iframe:hover {
+  transform: scale(1.01);
+}
+
+/* ---------- Responsive Tweaks ---------- */
+@media (max-width: 992px) {
+  .container {
+    gap: 35px;
+    padding: 0 10px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .form button {
+    align-self: stretch;
+  }
+}
+
+@media (max-width: 576px) {
+  .row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .mainImage {
+    max-height: 300px;
+  }
+
+  .mapWrapper iframe {
+    height: 300px;
+  }
+}

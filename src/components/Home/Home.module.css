@@ -1,0 +1,650 @@
+/* ===================== Reset & Global ===================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--text-light);
+  background-color: var(--bg-light);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* ===================== Global ===================== */
+.homePage {
+  font-family: "Poppins", sans-serif;
+  color: var(--text-dark);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* ===================== HERO SECTION ===================== */
+.hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  background: #000;
+}
+
+.videoBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: brightness(0.55) contrast(1.1) saturate(1.2);
+  transform: scale(1.05);
+  transition: transform 1s ease, filter 0.8s ease;
+}
+
+.hero:hover .videoBg {
+  transform: scale(1.1);
+  filter: brightness(0.7) contrast(1.2);
+}
+
+/* Gradient overlay for readability */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      circle at center,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.327) 80%
+    ),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.426));
+  z-index: 1;
+}
+
+/* ===================== TEXT CONTENT ===================== */
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 0 1.5rem;
+  color: var(--white);
+  transform: translateY(20px);
+}
+
+.heroContent h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1.5px;
+  margin-bottom: 1.2rem;
+  background: linear-gradient(90deg, #ffffff 10%, #c2e0ff 60%, #a8cfff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
+  filter: drop-shadow(0 5px 20px rgba(0, 0, 0, 0.4));
+  animation: subtleGlow 5s ease-in-out infinite alternate;
+}
+
+@keyframes subtleGlow {
+  from {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+  }
+  to {
+    text-shadow: 0 0 35px rgba(173, 216, 255, 0.5);
+  }
+}
+
+.heroContent p {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 640px;
+  margin: 0 auto 2.5rem;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateY(10px);
+}
+
+/* ===================== BUTTONS ===================== */
+.heroCTA {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaBtn,
+.ctaBtnSecondary {
+  padding: 0.9rem 2.2rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  transition: all 0.35s ease;
+}
+
+/* Primary Gradient Button */
+.ctaBtn {
+  background: linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.ctaBtn:hover {
+  transform: translateY(-5px);
+  background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+  box-shadow: 0 10px 35px rgba(0, 210, 255, 0.45);
+}
+
+/* Secondary Glass Button */
+.ctaBtnSecondary {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+}
+
+.ctaBtnSecondary:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #eaf6ff;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.25);
+}
+
+/* ================= Services ================= */
+.servicesSection {
+  padding: 6rem 5%;
+  text-align: center;
+  background: var(--bg-light);
+}
+
+.servicesSection h2 {
+  font-size: 2.8rem;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 4rem;
+  position: relative;
+  color: var(--primary-dark-blue);
+}
+.servicesSection h2::after {
+  content: "";
+  width: 120px;
+  height: 4px;
+  background: var(--primary-blue);
+  display: block;
+  margin: 12px auto 0 auto;
+  border-radius: var(--border-radius-sm);
+}
+
+.servicesWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+/* ---------- Service Card ---------- */
+.serviceCard {
+  display: flex;
+  align-items: stretch; /* ensures image fills vertically */
+  gap: 3rem;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  background: rgba(255, 255, 255, 0.7); /* glassy effect */
+  backdrop-filter: blur(12px);
+  width: 100%;
+  max-width: 1200px; /* keeps card consistent on large screens */
+  height: 400px; /* fixed height for all cards */
+  margin: 0 auto;
+}
+.serviceCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+}
+.reverse {
+  flex-direction: row-reverse;
+}
+
+/* ---------- Image Wrapper ---------- */
+.imageWrapper {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  height: 100%; /* fills the card height */
+  border-radius: var(--border-radius-lg);
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.05);
+  transition: transform 0.6s ease, filter 0.5s ease;
+}
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius-lg);
+  transition: transform 0.6s ease, filter 0.5s ease;
+}
+.imageWrapper:hover img {
+  transform: scale(1.1) rotateZ(1deg);
+  filter: brightness(1.05) contrast(1.1);
+}
+.imageWrapper .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,44,95,0.1), rgba(0,44,95,0.35));
+  border-radius: var(--border-radius-lg);
+}
+
+/* ---------- Content Wrapper ---------- */
+.contentWrapper {
+  flex: 1.2;
+  background: rgba(255, 255, 255, 0.85); /* glassy effect */
+  padding: 3rem 2.5rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+.contentWrapper h3 {
+  font-size: 2rem;
+  color: var(--primary-dark-blue);
+  margin-bottom: 1rem;
+}
+.contentWrapper p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: var(--text-dark);
+}
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+.featureList li {
+  font-size: 1rem;
+  color: var(--text-dark);
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.featureList li span {
+  color: var(--accent-green);
+  font-size: 1.2rem;
+}
+
+/* ---------- View More Button ---------- */
+.viewMore {
+  padding: 12px 28px;
+  background: var(--gradient-primary);
+  color: var(--white);
+  border-radius: var(--border-radius-pill);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+.viewMore:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+
+/* ---------- Responsive Adjustments ---------- */
+@media (max-width: 1024px) {
+  .serviceCard {
+    flex-direction: column;
+    height: auto;
+  }
+  .imageWrapper {
+    height: 250px;
+  }
+  .contentWrapper {
+    padding: 2rem 1.5rem;
+    border-radius: var(--border-radius-md);
+  }
+}
+@media (max-width: 600px) {
+  .serviceCard {
+    gap: 2rem;
+  }
+  .contentWrapper h3 {
+    font-size: 1.6rem;
+  }
+  .contentWrapper p {
+    font-size: 1rem;
+  }
+}
+
+
+/* ================= Portfolio ================= */
+.portfolioSection {
+  padding: 6rem 5%;
+  text-align: center;
+  background: var(--bg-light);
+}
+
+.portfolioSection h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.5rem, 5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 4rem;
+  color: var(--primary-dark-blue);
+  position: relative;
+}
+
+.portfolioSection h2::after {
+  content: "";
+  width: 120px;
+  height: 4px;
+  background: var(--primary-blue);
+  display: block;
+  margin: 12px auto 0 auto;
+  border-radius: 2px;
+}
+
+.portfolioGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+/* Portfolio Card */
+.portfolioCard {
+  position: relative;
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  max-height: 300px;
+}
+
+/* Media inside card */
+.portfolioCard img,
+.portfolioCard video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--border-radius-md);
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+/* Hover Zoom */
+.portfolioCard:hover img,
+.portfolioCard:hover video {
+  transform: scale(1.08);
+  filter: brightness(1.05);
+}
+
+/* Glass Overlay */
+.portfolioCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(2px);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.portfolioCard:hover::after {
+  opacity: 0;
+}
+
+/* Play Icon for videos */
+.portfolioCard video + .playIcon,
+.portfolioCard video + .playIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.85);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.portfolioCard:hover .playIcon {
+  opacity: 1;
+}
+
+/* Shadow on hover */
+.portfolioCard:hover {
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+/* ================= Process ================= */
+.processSection {
+  background: var(--bg-light);
+  padding: 6rem 5%;
+  text-align: center;
+}
+
+.processSection h2 {
+  font-size: 2.8rem;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 4rem;
+  position: relative;
+  color: var(--primary-dark-blue);
+}
+
+.processSection h2::after {
+  content: "";
+  width: 120px;
+  height: 4px;
+  background: var(--primary-blue);
+  display: block;
+  margin: 12px auto 0 auto;
+  border-radius: var(--border-radius-sm);
+}
+
+.processGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--spacing-lg);
+}
+.step {
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 12px 35px var(--shadow-light);
+  transition: all 0.4s ease;
+}
+.step:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px var(--shadow-medium);
+}
+.stepNumber {
+  width: 70px;
+  height: 70px;
+  background: var(--primary-blue);
+  color: var(--white);
+  font-weight: var(--font-weight-bold);
+  font-size: 1.4rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1rem auto;
+}
+
+/* ================= Testimonials ================= */
+.testimonialCarouselSection {
+  padding: 6rem 5%;
+  background: var(--white);
+  color: var(--primary-dark-blue);
+  text-align: center;
+  position: relative;
+}
+
+.testimonialCarouselSection h2 {
+  font-size: 2.8rem;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 4rem;
+  color: var(--primary-dark-blue);
+}
+.testimonialCarouselSection h2::after {
+  content: "";
+  width: 120px;
+  height: 4px;
+  background: var(--primary-blue);
+  display: block;
+  margin: 12px auto 0 auto;
+  border-radius: var(--border-radius-sm);
+}
+
+.testimonialCarouselWrapper {
+  display: flex;
+  overflow: hidden;
+  padding: 0 var(--spacing-md);
+}
+
+.testimonialCarousel {
+  display: flex;
+  gap: var(--spacing-lg);
+  cursor: grab;
+  padding: var(--spacing-sm) 0;
+  scroll-behavior: smooth;
+}
+
+.testimonialCard {
+  min-width: 250px;
+  max-width: 320px;
+  background: var(--white);
+  padding: 2rem 1.5rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 10px 30px var(--shadow-light);
+  flex-shrink: 0;
+  text-align: center;
+  transition: all 0.3s ease;
+  scroll-snap-align: center;
+}
+.testimonialCard:hover {
+  transform: scale(1.05);
+  border: 1px solid var(--primary-blue);
+}
+
+.testimonialCard p {
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+.testimonialCard h4 {
+  font-weight: var(--font-weight-bold);
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+  color: var(--text-dark);
+}
+.testimonialCard span {
+  font-size: 0.95rem;
+  opacity: 0.7;
+  color: var(--text-light);
+}
+
+/* ================= CTA ================= */
+.ctaSection {
+  background: var(--gradient-primary);
+  color: var(--white);
+  padding: 5rem 5%;
+  text-align: center;
+  border-radius: 50px 50px 0 0;
+}
+
+.ctaSection h2 {
+  font-size: 2.8rem;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 4rem;
+  position: relative;
+  color: var(--white);
+}
+
+.ctaSection h2::after {
+  content: "";
+  width: 120px;
+  height: 4px;
+  background: var(--primary-blue);
+  display: block;
+  margin: 12px auto 0 auto;
+  border-radius: var(--border-radius-sm);
+}
+
+.ctaSection p {
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  font-size: 1.1rem;
+}
+
+.ctaSection .ctaBtn {
+  background: var(--white);
+  color: var(--primary-dark-blue);
+  padding: var(--btn-padding-lg);
+  border-radius: var(--border-radius-pill);
+  font-weight: var(--font-weight-bold);
+}
+
+.ctaSection .ctaBtn:hover {
+  background: var(--accent-hover);
+  color: var(--white);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px var(--shadow-dark);
+}
+
+/* ================= Animations ================= */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 1024px) {
+  .serviceCard {
+    flex-direction: column;
+    text-align: center;
+  }
+  .reverse {
+    flex-direction: column;
+  }
+}
+@media (max-width: 768px) {
+  .heroContent h1 {
+    font-size: 2rem;
+  }
+  .heroContent p {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .heroContent h1 {
+    font-size: 1.6rem;
+  }
+  .heroContent p {
+    font-size: 0.95rem;
+  }
+  .prevBtn,
+  .nextBtn {
+    display: none;
+  }
+}

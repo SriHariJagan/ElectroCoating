@@ -1,0 +1,239 @@
+
+/* ===================== Header / Navbar ===================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 4%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  z-index: 1000;
+  color: var(--text-on-dark);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.header.shrink {
+  padding: 10px 4%;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(10px) saturate(160%);
+}
+
+.header.scrolled {
+  background: rgba(171, 255, 255, 0.344);
+  box-shadow: 0 4px 16px var(--shadow-dark);
+  backdrop-filter: blur(12px) saturate(180%);
+}
+
+/* ===================== Logo ===================== */
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--accent-gold);
+  padding-top: 8px;
+}
+
+.logoIcon {
+  margin-right: 8px;
+  font-size: 1.5rem;
+  color: var(--accent-gold);
+}
+
+.logoText {
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  color: var(--accent-gold);
+}
+
+/* ===================== Desktop Navigation ===================== */
+.nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav li a {
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  /* color: var(--text-on-dark); */
+  color: rgb(0, 199, 199);
+
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav li a::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0;
+  background: var(--accent-gold);
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.nav li a:hover {
+  color: var(--accent-gold);
+  transform: scale(1.05);
+}
+
+.nav li a:hover::after {
+  width: 100%;
+}
+
+.nav li a.active {
+  color: var(--accent-gold);
+  font-weight: 700;
+}
+
+/* ===================== Mobile Menu Button ===================== */
+.menuBtn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 1100;
+  color: var(--text-on-dark);
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.menuBtn:hover {
+  transform: scale(1.1);
+  color: var(--accent-gold);
+}
+
+/* ===================== Overlay ===================== */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0);
+  pointer-events: none;
+  transition: background 0.3s ease;
+  z-index: 999;
+}
+
+.showOverlay {
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: all;
+}
+
+/* ===================== Mobile Slide-in Menu ===================== */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 75%;
+  max-width: 300px;
+  height: 100vh;
+  background: rgba(171, 255, 255, 0.197);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  transition: right 0.5s ease, background 0.3s ease;
+  z-index: 1001;
+  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  border-radius: 0 12px 12px 0; /* optional rounded edges for modern look */
+}
+
+
+.showMenu {
+  right: 0;
+}
+
+.mobileMenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mobileMenu li {
+  opacity: 1;
+  transform: translateX(5px);
+}
+
+.mobileMenu.showLinks li {
+  animation: slideIn 0.4s forwards;
+}
+
+.mobileMenu li:nth-child(1) { animation-delay: 0.05s; }
+.mobileMenu li:nth-child(2) { animation-delay: 0.1s; }
+.mobileMenu li:nth-child(3) { animation-delay: 0.15s; }
+.mobileMenu li:nth-child(4) { animation-delay: 0.2s; }
+.mobileMenu li:nth-child(5) { animation-delay: 0.25s; }
+
+.mobileMenu ul li a {
+  font-size: 1.2rem;
+  /* color: var(--text-on-dark); */
+  color: rgb(0, 199, 199);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  padding: 10px 40px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.mobileMenu li a:hover {
+  color: var(--accent-gold);
+  background: rgba(255, 255, 255, 0.1);
+  padding-left: 10px;
+  transform: translateX(5px);
+}
+
+.mobileMenu li a.active {
+  color: var(--accent-gold);
+  font-weight: 700;
+}
+
+/* ===================== Animations ===================== */
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ===================== Responsive ===================== */
+@media (max-width: 680px) {
+  .nav {
+    display: none;
+  }
+
+  .menuBtn {
+    display: block;
+  }
+
+  .mobileMenu {
+    display: flex;
+  }
+}

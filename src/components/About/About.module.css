@@ -1,0 +1,420 @@
+.aboutPage {
+  font-family: "Poppins", sans-serif;
+  color: var(--text-dark);
+  scroll-behavior: smooth;
+}
+
+/* Sections & Headings */
+.section,
+.sectionAlt {
+  padding: 5rem 5%;
+  text-align: center;
+}
+.sectionAlt {
+  background: var(--bg-light);
+}
+
+.heading {
+  font-size: 2.8rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-dark-blue);
+  margin-bottom: 2rem;
+  position: relative;
+}
+.heading::after {
+  content: "";
+  width: 120px;
+  height: 4px;
+  background: var(--primary-blue);
+  display: block;
+  margin: 12px auto 0 auto;
+  border-radius: var(--border-radius-sm);
+}
+
+/* Text */
+.text {
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+  line-height: 1.6;
+}
+
+/* Milestones */
+.milestones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  padding: 3rem 0;
+}
+.milestone {
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
+  padding: 2rem;
+  min-width: 220px;
+  transition: all 0.3s ease;
+  position: relative;
+  border-left: 5px solid var(--primary-blue);
+}
+.milestone:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+.year {
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-blue);
+  font-size: 1.2rem;
+}
+.desc {
+  font-size: 1rem;
+  color: var(--text-dark);
+  margin-top: 0.5rem;
+}
+
+/* Certifications */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.certThumb {
+  cursor: pointer;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+}
+.certThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.certThumb:hover img {
+  transform: scale(1.05);
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.modalContent {
+  max-width: 95%;
+  max-height: 95%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.modalImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: var(--border-radius-md);
+  cursor: grab;
+  transition: transform 0.2s ease;
+}
+.closeBtn,
+.prevBtn,
+.nextBtn {
+  position: absolute;
+  border: none;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 0.5rem 0.7rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+.closeBtn {
+  top: 10px;
+  right: 10px;
+}
+.prevBtn {
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.nextBtn {
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.closeBtn:hover,
+.prevBtn:hover,
+.nextBtn:hover {
+  background: var(--primary-blue);
+  transform: scale(1.1);
+}
+
+.controls {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+
+/* Mission & Vision */
+.sideBySide {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.sideCard {
+  flex: 1;
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Why Choose Us */
+/* Why Choose Us styled like Applications */
+.whyChoose {
+  max-width: 800px;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+}
+
+.whyChoose li {
+  font-size: 1.05rem;
+  color: var(--text-dark);
+  background: var(--white);
+  padding: 0.9rem 1.2rem;
+  margin-bottom: 0.8rem;
+  border-left: 5px solid var(--primary-blue);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.whyChoose li:hover {
+  background: var(--primary-blue);
+  color: var(--white);
+  cursor: default;
+}
+
+
+/* Team */
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.teamCard {
+  background: var(--white);
+  padding: 2rem 1.5rem;
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+.teamCard:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+}
+.teamCard img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-blue);
+  margin-bottom: 0.5rem;
+}
+.teamCard h3 {
+  margin: 0.5rem 0;
+  color: var(--text-dark);
+}
+.teamCard p {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+/* Table */
+.tableWrapper {
+  overflow-x: auto;
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.infoTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: var(--border-radius-lg);
+  min-width: 700px; /* ensures table is scrollable on small screens */
+}
+
+.infoTable th, .infoTable td {
+  padding: 1rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.infoTable th {
+  background: var(--primary-blue);
+  color: #fff;
+  width: 35%;
+}
+
+.infoTable td {
+  background: #f9f9f9;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.infoTable tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =================== Responsive Updates =================== */
+
+/* General Section & Text Adjustments */
+@media (max-width: 768px) {
+  .section,
+  .sectionAlt {
+    padding: 3rem 3%;
+  }
+
+  .heading {
+    font-size: 2.2rem;
+  }
+
+  .text {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Milestones Flex Adjustment */
+@media (max-width: 600px) {
+  .milestones {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .milestone {
+    min-width: auto;
+    width: 100%;
+  }
+}
+
+/* Mission & Vision: stack in one column on mobile */
+@media (max-width: 768px) {
+  .sideBySide {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .sideCard {
+    width: 100%;
+  }
+}
+
+/* Team Grid for smaller devices */
+@media (max-width: 480px) {
+  .teamGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .teamCard {
+    padding: 1.5rem 1rem;
+  }
+
+  .teamCard img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .teamCard h3 {
+    font-size: 1rem;
+  }
+
+  .teamCard p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Certifications grid responsiveness */
+@media (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* Table responsiveness */
+@media (max-width: 700px) {
+  .infoTable {
+    min-width: auto;
+  }
+
+  .infoTable th,
+  .infoTable td {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Modal image zoom adjustments */
+@media (max-width: 480px) {
+  .modalContent {
+    max-width: 95%;
+    max-height: 90%;
+  }
+
+  .modalImage {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .closeBtn,
+  .prevBtn,
+  .nextBtn {
+    font-size: 1.2rem;
+    padding: 0.4rem 0.6rem;
+  }
+}
+
+/* Fine tune for ultra small screens (<320px) */
+@media (max-width: 320px) {
+  .heading {
+    font-size: 1.8rem;
+  }
+
+  .text {
+    font-size: 0.95rem;
+  }
+
+  .milestone {
+    padding: 1.2rem;
+  }
+
+  .sideCard {
+    padding: 1.2rem;
+  }
+
+  .teamCard {
+    padding: 1rem;
+  }
+
+  .infoTable th,
+  .infoTable td {
+    padding: 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+
