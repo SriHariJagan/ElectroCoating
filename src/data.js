@@ -100,53 +100,46 @@ export const colorShadeColors = [
 
 
 export const homeImages = {
-  heroImage: '/public/images/services/powder.png',
-  powderCoating: "/public/images/services/powder/powder.WEBP",
-  woodenCoating: '/public/images/services/wooden/wooden.JPG',
-  pvdCoating: '/public/images/services/pvd/pvd.JPG'
+  heroImage: '/images/services/powder.png',
+  powderCoating: '/images/services/powder/powder.WEBP',
+  woodenCoating: '/images/services/wooden/wooden.JPG',
+  pvdCoating: '/images/services/pvd/pvd.JPG'
 }
-
 
 export const portfolioItems = [
-  { type: "image", src: "/public/images/ourWorks/work1.jpg" },
-  { type: "image", src: "/public/images/ourWorks/work3.png" },
-  { type: "image", src: "/public/images/ourWorks/work4.png" },
-  { type: "image", src: "/public/images/ourWorks/work5.png" },
-  { type: "image", src: "/public/images/ourWorks/work7.png" },
-  { type: "image", src: "/public/images/ourWorks/work8.png" },
-
-  { type: "video", src: "/public/images/ourWorks/work2.mp4" },
-  { type: "video", src: "/public/images/ourWorks/work6.mp4" },
-
+  { type: "image", src: "/images/ourWorks/work1.jpg" },
+  { type: "image", src: "/images/ourWorks/work3.png" },
+  { type: "image", src: "/images/ourWorks/work4.png" },
+  { type: "image", src: "/images/ourWorks/work5.png" },
+  { type: "image", src: "/images/ourWorks/work7.png" },
+  { type: "image", src: "/images/ourWorks/work8.png" },
+  { type: "video", src: "/images/ourWorks/work2.mp4" },
+  { type: "video", src: "/images/ourWorks/work6.mp4" },
 ];
 
-
 export const serviceBannerImages = {
-  powderCoatingImgs: "/public/images/services/powder/powderBanner.JPG",
-  pvdCoatingImgs: "/public/images/services/pvd/pvdBanner.jpg",
-  woodenCoatingImgs: "/public/images/services/wooden/woodenBanner.png",
+  powderCoatingImgs: '/images/services/powder/powderBanner.JPG',
+  pvdCoatingImgs: '/images/services/pvd/pvdBanner.jpg',
+  woodenCoatingImgs: '/images/services/wooden/woodenBanner.png',
 }
 
-
 export const powderCoatingImgs = [
-  '/public/images/services/powder/powder1.jpg',
-  '/public/images/services/powder/powder.WEBP',
-  '/public/images/services/powder/powder.WEBP',
-  '/public/images/services/powder/powder.WEBP',
-] 
-
+  '/images/services/powder/powder1.jpg',
+  '/images/services/powder/powder.WEBP',
+  '/images/services/powder/powder.WEBP',
+  '/images/services/powder/powder.WEBP',
+]
 
 export const pvdCoatingImgs = [
-  '/public/images/services/pvd/pvd4.jpg',
-  '/public/images/services/pvd/pvd1.png',
-  '/public/images/services/pvd/pvd2.png',
-  '/public/images/services/pvd/pvd3.png',
-] 
-
+  '/images/services/pvd/pvd4.jpg',
+  '/images/services/pvd/pvd1.png',
+  '/images/services/pvd/pvd2.png',
+  '/images/services/pvd/pvd3.png',
+]
 
 export const woodenCoatingImgs = [
-  '/public/images/services/powder/powder.WEBP',
-  '/public/images/services/powder/powder.WEBP',
-  '/public/images/services/powder/powder.WEBP',
-  '/public/images/services/powder/powder.WEBP',
-] 
+  '/images/services/wooden/wooden1.jpg',
+  '/images/services/wooden/wooden2.jpg',
+  '/images/services/wooden/wooden3.jpg',
+  '/images/services/wooden/wooden4.jpg',
+]
