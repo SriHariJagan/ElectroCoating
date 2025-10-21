@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Star, Shield, Droplet, Settings, Eye } from "lucide-react";
 import styles from "./ServiceDetail.module.css";
-import pvdImg from "../../../public/images/services/pvd/pvd.JPG";
 
-import { pvdCoatingImgs, serviceBannerImages } from "../../data";
+import { pvdCoatingImgs, serviceBannerImages, pvdApp } from "../../data";
 
 
 const PvdCoating = () => {
@@ -16,38 +15,39 @@ const PvdCoating = () => {
     { icon: <Settings />, title: "Custom Shades", desc: "Gold, rose gold, black, bronze, and chrome available." },
   ];
 
-  const applicationsData = [
-    {
-      title: "Luxury hardware & furniture",
-      image: pvdImg,
-      desc: "Perfect for premium furniture and decorative hardware with a mirror-like finish.",
-      details: "Handles, Knobs, Hinges, Furniture Accessories",
-    },
-    {
-      title: "Sanitary fittings",
-      image: pvdImg,
-      desc: "Durable, corrosion-resistant coating for faucets, shower heads, and bathroom fixtures.",
-      details: "Faucets, Shower Heads, Towel Rails",
-    },
-    {
-      title: "Automotive trims",
-      image: pvdImg,
-      desc: "Enhances automotive trims with high-end metallic finishes that last.",
-      details: "Exterior & Interior Trims, Badges, Emblems",
-    },
-    {
-      title: "Decorative consumer goods",
-      image: pvdImg,
-      desc: "Provides premium coating for consumer products and accessories.",
-      details: "Appliances, Gadgets, Decor Items",
-    },
-    {
-      title: "Jewelry & watches",
-      image: pvdImg,
-      desc: "High-precision metallic coatings for jewelry and watches, maintaining brilliance and durability.",
-      details: "Rings, Bracelets, Watch Cases",
-    },
-  ];
+const applicationsData = [
+  {
+    title: "Luxury Hardware & Furniture",
+    image: pvdApp.hardware,
+    desc: "Delivers a luxurious mirror-like metallic finish that elevates the appearance of premium furniture and hardware. The coating ensures long-lasting brilliance, scratch resistance, and timeless elegance.",
+    details: "Handles, Knobs, Hinges, Furniture Accessories",
+  },
+  {
+    title: "Sanitary Fittings",
+    image: pvdApp.sanitary,
+    desc: "Combines aesthetic appeal with exceptional durability. Ideal for faucets, shower heads, and bath accessories, offering a corrosion-resistant surface that withstands constant exposure to water and humidity.",
+    details: "Faucets, Shower Heads, Towel Rails",
+  },
+  {
+    title: "Automotive Trims",
+    image: pvdApp.automotive,
+    desc: "Provides a sophisticated metallic appearance with outstanding wear and oxidation resistance. Perfect for both interior and exterior trims, ensuring a consistent high-gloss finish that endures extreme conditions.",
+    details: "Exterior & Interior Trims, Badges, Emblems",
+  },
+  {
+    title: "Decorative Consumer Goods",
+    image: pvdApp.consumer,
+    desc: "Adds a touch of refinement and luxury to everyday consumer products. PVD coatings deliver unmatched durability and elegance for modern appliances, electronics, and lifestyle accessories.",
+    details: "Appliances, Gadgets, Decor Items",
+  },
+  {
+    title: "Jewelry & Watches",
+    image: pvdApp.jewelry,
+    desc: "Offers a superior, wear-resistant metallic finish for high-end jewelry and timepieces. Ensures a flawless surface that retains its shine, color, and precision craftsmanship over time.",
+    details: "Rings, Bracelets, Watch Cases",
+  },
+];
+
 
   const processSteps = [
     { step: "1", title: "Surface Cleaning", desc: "Degreasing and polishing metal surface to prepare for coating." },

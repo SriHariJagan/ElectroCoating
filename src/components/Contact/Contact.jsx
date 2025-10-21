@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Phone, Mail, MapPin, User, Printer, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 import styles from "./Contact.module.css";
@@ -13,6 +13,63 @@ const fadeUp = {
 };
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
+
+  // ====== Restrict Phone Input ======
+  const handlePhoneChange = (e) => {
+    const value = e.target.value.replace(/[^0-9+]/g, ""); // remove invalid chars
+    setFormData({ ...formData, phone: value });
+  };
+
+  const handlePhoneKeyDown = (e) => {
+    const allowedKeys = [
+      "Backspace",
+      "Delete",
+      "ArrowLeft",
+      "ArrowRight",
+      "Tab",
+      "+",
+    ];
+    if (!/[0-9]/.test(e.key) && !allowedKeys.includes(e.key)) {
+      e.preventDefault();
+    }
+  };
+
+  const handlePaste = (e) => {
+    const pasted = e.clipboardData.getData("text");
+    if (/[^0-9+]/.test(pasted)) e.preventDefault();
+  };
+
+  // ====== Form Submission ======
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Basic phone number validation (10–15 digits, optional +)
+    const phoneRegex = /^\+?\d{10,15}$/;
+    if (!phoneRegex.test(formData.phone)) {
+      alert("Please enter a valid phone number (10–15 digits).");
+      return;
+    }
+
+    // Example form handling
+    console.log("Form Submitted ✅", formData);
+    alert("Form submitted successfully!");
+
+    setFormData({
+      firstName: "",
+      lastName: "",
+      phone: "",
+      email: "",
+      message: "",
+    });
+  };
+
   return (
     <section className={styles.contact}>
       <div className={styles.container}>
@@ -32,25 +89,72 @@ const Contact = () => {
             coating and anodizing solutions.
           </motion.p>
 
-          <motion.form className={styles.form} variants={fadeUp} custom={2}>
+          {/* ===== FORM START ===== */}
+          <motion.form
+            className={styles.form}
+            variants={fadeUp}
+            custom={2}
+            onSubmit={handleSubmit}
+          >
             <div className={styles.row}>
-              <input type="text" placeholder="First Name" required />
-              <input type="text" placeholder="Last Name" required />
+              <input
+                type="text"
+                placeholder="First Name"
+                required
+                value={formData.firstName}
+                onChange={(e) =>
+                  setFormData({ ...formData, firstName: e.target.value })
+                }
+              />
+              <input
+                type="text"
+                placeholder="Last Name"
+                required
+                value={formData.lastName}
+                onChange={(e) =>
+                  setFormData({ ...formData, lastName: e.target.value })
+                }
+              />
             </div>
 
             <div className={styles.row}>
-              <input type="text" placeholder="Phone Number" required />
-              <input type="email" placeholder="Email ID" required />
+              {/* ✅ Phone Input with Validation */}
+              <input
+                type="tel"
+                inputMode="numeric"
+                placeholder="Phone Number"
+                value={formData.phone}
+                onChange={handlePhoneChange}
+                onKeyDown={handlePhoneKeyDown}
+                onPaste={handlePaste}
+                maxLength={15}
+                required
+              />
+
+              <input
+                type="email"
+                placeholder="Email ID"
+                required
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
+              />
             </div>
 
             <textarea
               placeholder="Your Message / Description"
               rows="4"
               required
+              value={formData.message}
+              onChange={(e) =>
+                setFormData({ ...formData, message: e.target.value })
+              }
             ></textarea>
 
             <button type="submit">Submit</button>
           </motion.form>
+          {/* ===== FORM END ===== */}
         </motion.div>
 
         {/* Right Column - Company Details + Image */}

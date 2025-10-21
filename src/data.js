@@ -124,22 +124,45 @@ export const serviceBannerImages = {
 }
 
 export const powderCoatingImgs = [
-  '/images/services/powder/powder1.jpg',
+  '/images/services/powder/powder1.png',
   '/images/services/powder/powder.WEBP',
-  '/images/services/powder/powder.WEBP',
-  '/images/services/powder/powder.WEBP',
+  '/images/services/powder/powder2.png',
+  '/images/services/powder/powder3.png',
 ]
 
 export const pvdCoatingImgs = [
-  '/images/services/pvd/pvd4.jpg',
+  '/images/services/pvd/pvd4.png',
   '/images/services/pvd/pvd1.png',
   '/images/services/pvd/pvd2.png',
   '/images/services/pvd/pvd3.png',
 ]
 
 export const woodenCoatingImgs = [
-  '/images/services/wooden/wooden1.jpg',
-  '/images/services/wooden/wooden2.jpg',
-  '/images/services/wooden/wooden3.jpg',
-  '/images/services/wooden/wooden4.jpg',
+  '/images/services/wooden/wooden4.png',
+  '/images/services/wooden/wooden3.png',
+  '/images/services/wooden/wooden1.png',
+  '/images/services/wooden/wooden2.png',
 ]
+
+export const woodApp = {
+  doors: "/images/services/wooden/applications/app1.png",
+  furniture: "/images/services/wooden/applications/app2.png",
+  facades: "/images/services/wooden/applications/app3.png",
+  paneling: "/images/services/wooden/applications/app4.png",
+  metal: "/images/services/wooden/applications/app5.png",
+}
+
+export const pvdApp = {
+  hardware: "/images/services/pvd/applications/app1.png",
+  sanitary: "/images/services/pvd/applications/app2.png",
+  automotive: "/images/services/pvd/applications/app3.png",
+  consumer: "/images/services/pvd/applications/app4.png",
+  jewelry: "/images/services/pvd/applications/app5.png",
+}
+
+export const powderApp = {
+  architecture: "/images/services/powder/applications/app1.JPG",
+  automotive: "/images/services/powder/applications/app2.JPG",
+  industrial: "/images/services/powder/applications/app3.PNG",
+  furniture: "/images/services/powder/applications/app4.JPG",
+}

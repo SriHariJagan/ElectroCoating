@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Shield, Droplet, Sun, Leaf, Settings } from "lucide-react";
 import styles from "./ServiceDetail.module.css";
 
-import { powderCoatingImgs, serviceBannerImages } from "../../data";
+import { powderCoatingImgs, serviceBannerImages, powderApp } from "../../data";
 
 import powderImg from "../../../public/images/services/powder/powder.WEBP";
 import woodenImg from "../../../public/images/services/wooden/wooden.JPG";
@@ -39,27 +39,27 @@ const PowderCoating = () => {
 
   const applicationsData = [
     {
-      title: "Architectural facades and aluminum profiles",
-      image: powderImg,
-      desc: "Perfect for outdoor and indoor facades, providing durability and aesthetic appeal.",
+      title: "Architectural Facades and Aluminum Profiles",
+      image: powderApp.architecture,
+      desc: "Delivers long-lasting protection and a flawless finish for outdoor and indoor architectural facades. Combines weather resistance with aesthetic appeal, ideal for aluminum panels and building exteriors.",
       details: "Aluminum, Panels, Exterior, Interior",
     },
     {
-      title: "Automotive parts and wheels",
-      image: powderImg,
-      desc: "Enhances corrosion resistance and gives a premium metallic finish to automotive components.",
+      title: "Automotive Parts and Wheels",
+      image: powderApp.automotive,
+      desc: "Provides a durable, corrosion-resistant coating with a smooth, premium metallic finish. Perfect for wheels, trims, and engine components, ensuring both protection and high-end aesthetics.",
       details: "Wheels, Trims, Engine Parts, Custom Colors",
     },
     {
-      title: "Industrial machinery and equipment",
-      image: powderImg,
-      desc: "Protects heavy machinery from wear, chemicals, and UV exposure in industrial settings.",
+      title: "Industrial Machinery and Equipment",
+      image: powderApp.industrial,
+      desc: "Protects industrial machines and tools from wear, chemicals, and UV exposure. Ideal for heavy-duty environments, ensuring long-term durability and performance of machinery and equipment.",
       details: "Machines, Tools, Industrial Parts",
     },
     {
-      title: "Furniture frames and metal décor",
-      image: woodenImg,
-      desc: "Provides a decorative and durable coating for furniture and interior décor.",
+      title: "Furniture Frames and Metal Décor",
+      image: powderApp.furniture,
+      desc: "Enhances furniture frames and decorative metal pieces with a robust, attractive finish. Combines elegance with durability, making it ideal for interior décor and custom metal furnishings.",
       details: "Frames, Shelves, Racks, Decorative Metals",
     },
   ];
@@ -107,7 +107,9 @@ const PowderCoating = () => {
       {/* Hero Section */}
       <motion.section
         className={styles.hero}
-        style={{ backgroundImage: `url(${serviceBannerImages.powderCoatingImgs})` }}
+        style={{
+          backgroundImage: `url(${serviceBannerImages.powderCoatingImgs})`,
+        }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}

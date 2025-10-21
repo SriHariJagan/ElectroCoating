@@ -2,33 +2,87 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Leaf, Sun, Droplet, Shield, Settings } from "lucide-react";
 import styles from "./ServiceDetail.module.css";
-import { woodenCoatingImgs, serviceBannerImages } from "../../data"; // array of wooden images
-
-
-import woodenImg from "/images/services/wooden/wooden.JPG";
+import { woodenCoatingImgs, serviceBannerImages, woodApp} from "../../data"; // array of wooden images
 
 const WoodenCoating = () => {
   const benefits = [
-    { icon: <Leaf />, title: "Natural Aesthetics", desc: "Authentic wood textures that replicate real wood grains and patterns." },
-    { icon: <Sun />, title: "UV Resistant", desc: "Prevents fading or discoloration even under strong sunlight." },
-    { icon: <Droplet />, title: "Waterproof Finish", desc: "Resistant to moisture, weather, and corrosion." },
+    {
+      icon: <Leaf />,
+      title: "Natural Aesthetics",
+      desc: "Authentic wood textures that replicate real wood grains and patterns.",
+    },
+    {
+      icon: <Sun />,
+      title: "UV Resistant",
+      desc: "Prevents fading or discoloration even under strong sunlight.",
+    },
+    {
+      icon: <Droplet />,
+      title: "Waterproof Finish",
+      desc: "Resistant to moisture, weather, and corrosion.",
+    },
     // { icon: <Shield />, title: "Scratch & Abrasion Resistant", desc: "Keeps surfaces pristine and durable for years." },
-    { icon: <Settings />, title: "Customizable Finishes", desc: "Available in oak, walnut, teak, and bespoke wood grains." },
+    {
+      icon: <Settings />,
+      title: "Customizable Finishes",
+      desc: "Available in oak, walnut, teak, and bespoke wood grains.",
+    },
   ];
 
   const applicationsData = [
-    { title: "Doors and Windows", image: woodenImg, desc: "Adds elegance and protection to doors and window frames.", details: "Frames, Panels, Custom Sizes" },
-    { title: "Interior Furniture", image: woodenImg, desc: "Enhances interior furniture with natural wood textures.", details: "Tables, Chairs, Cabinets" },
-    { title: "Architectural Facades", image: woodenImg, desc: "Outdoor and indoor facades with premium wooden finish.", details: "Cladding, Panels, Exterior Design" },
-    { title: "Curtain Walls & Paneling", image: woodenImg, desc: "Durable decorative coating for metal structures.", details: "Panels, Screens, Walls" },
-    { title: "Decorative Metal Installations", image: woodenImg, desc: "Premium finishing for decorative metal elements.", details: "Rails, Fixtures, Décor" },
+    {
+      title: "Doors and Windows",
+      image: woodApp.doors,
+      desc: "Combines durability with refined aesthetics, offering a natural wood-grain appearance that enhances the elegance of doors and window frames while providing long-lasting surface protection.",
+      details: "Frames, Panels, Custom Sizes",
+    },
+    {
+      title: "Interior Furniture",
+      image: woodApp.furniture,
+      desc: "Transforms ordinary furniture into timeless pieces with authentic wooden textures. Ideal for both residential and commercial interiors, ensuring style, sophistication, and resistance to daily wear.",
+      details: "Tables, Chairs, Cabinets",
+    },
+    {
+      title: "Architectural Facades",
+      image: woodApp.facades,
+      desc: "Provides a premium wood-like finish for architectural facades, blending natural aesthetics with weather resistance. Perfect for both exterior cladding and interior design accents.",
+      details: "Cladding, Panels, Exterior Design",
+    },
+    {
+      title: "Curtain Walls & Paneling",
+      image: woodApp.paneling,
+      desc: "Offers a contemporary, elegant look for curtain wall systems and interior panels. The coating ensures smooth texture, superior adhesion, and excellent resistance to environmental factors.",
+      details: "Panels, Screens, Walls",
+    },
+    {
+      title: "Decorative Metal Installations",
+      image: woodApp.metal,
+      desc: "Enhances decorative metal structures with a natural wood appearance, giving a premium, warm, and artistic finish while maintaining strength and corrosion protection.",
+      details: "Rails, Fixtures, Décor",
+    },
   ];
 
   const processSteps = [
-    { step: "1", title: "Surface Cleaning", desc: "Preparing metal surfaces for perfect adhesion of wood grain coating." },
-    { step: "2", title: "Film Transfer", desc: "Heat sublimation applies the wood pattern uniformly." },
-    { step: "3", title: "Curing & Coating", desc: "The coated surface is baked for a durable, scratch-proof finish." },
-    { step: "4", title: "Quality Inspection", desc: "Ensures texture, color, and durability meet high standards." },
+    {
+      step: "1",
+      title: "Surface Cleaning",
+      desc: "Preparing metal surfaces for perfect adhesion of wood grain coating.",
+    },
+    {
+      step: "2",
+      title: "Film Transfer",
+      desc: "Heat sublimation applies the wood pattern uniformly.",
+    },
+    {
+      step: "3",
+      title: "Curing & Coating",
+      desc: "The coated surface is baked for a durable, scratch-proof finish.",
+    },
+    {
+      step: "4",
+      title: "Quality Inspection",
+      desc: "Ensures texture, color, and durability meet high standards.",
+    },
   ];
 
   const [activeAppIndex, setActiveAppIndex] = useState(null);
@@ -51,7 +105,9 @@ const WoodenCoating = () => {
       {/* Hero Section */}
       <motion.section
         className={styles.hero}
-        style={{ backgroundImage: `url(${serviceBannerImages.woodenCoatingImgs})` }}
+        style={{
+          backgroundImage: `url(${serviceBannerImages.woodenCoatingImgs})`,
+        }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -94,13 +150,13 @@ const WoodenCoating = () => {
         >
           <h2>Durable & Timeless Wood Finishes</h2>
           <p>
-            Our wooden coating process replicates the warmth and elegance of real wood
-            while offering all the durability of metal. Perfect for outdoor and indoor
-            architectural applications.
+            Our wooden coating process replicates the warmth and elegance of
+            real wood while offering all the durability of metal. Perfect for
+            outdoor and indoor architectural applications.
           </p>
           <p>
-            Maintenance-free, weather-resistant, and eco-friendly, this coating keeps
-            your surfaces beautiful for years without compromise.
+            Maintenance-free, weather-resistant, and eco-friendly, this coating
+            keeps your surfaces beautiful for years without compromise.
           </p>
         </motion.div>
       </section>
@@ -193,8 +249,13 @@ const WoodenCoating = () => {
         transition={{ duration: 1 }}
       >
         <h2>Bring Warmth to Your Spaces</h2>
-        <p>Contact us to explore premium wooden coatings for your architectural projects.</p>
-        <a href="/contact" className={styles.ctaBtn}>Request a Sample</a>
+        <p>
+          Contact us to explore premium wooden coatings for your architectural
+          projects.
+        </p>
+        <a href="/contact" className={styles.ctaBtn}>
+          Request a Sample
+        </a>
       </motion.section>
     </div>
   );

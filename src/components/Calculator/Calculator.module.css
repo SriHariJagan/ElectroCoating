@@ -122,6 +122,14 @@
   flex-wrap: wrap;
 }
 
+.radioGroup label,
+.radioGroupInline label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+
 /* ===================== Buttons ===================== */
 .btn {
   margin-top: 1rem;
