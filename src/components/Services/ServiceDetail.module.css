@@ -12,7 +12,7 @@
   height: 90vh;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* subtle parallax effect */
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,7 +30,7 @@
   inset: 0;
   background: linear-gradient(180deg, rgba(0, 44, 95, 0.4), rgba(0, 0, 0, 0.9));
   z-index: 0;
-  backdrop-filter: blur(3px); /* subtle glass effect */
+  backdrop-filter: blur(3px);
 }
 
 .hero h1 {
@@ -61,12 +61,12 @@
 /* ===================== Overview Section ===================== */
 .overview {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 3rem;
   padding: 6rem 8%;
   background: var(--white);
-  flex-wrap: wrap; /* allows stacking on smaller screens */
+  flex-wrap: wrap;
 }
 
 /* ---- Carousel ---- */
@@ -83,76 +83,20 @@
 .carouselTrack {
   display: flex;
   transition: transform 0.8s ease-in-out;
-  /* Instead of fixed height, use aspect ratio */
-  aspect-ratio: 16/9;
+  width: 100%;
 }
 
 .carouselTrack img {
-  min-width: 100%;
-  height: 100%;
-  object-fit: contain; /* ensures full image is visible */
+  flex: 0 0 100%;
+  width: 100%;
+  height: auto; /* auto height for responsive scaling */
+  object-fit: cover;
   border-radius: 20px;
   transition: transform 0.3s ease;
 }
 
 .carouselTrack img:hover {
-  transform: scale(1.05); /* subtle zoom effect for professionalism */
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  .carouselTrack {
-    object-fit: cover;
-  }
-}
-
-@media (max-width: 480px) {
-  .carouselTrack img{
-    object-fit: cover; 
-  }
-}
-
-
-/* Navigation buttons */
-.navBtn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  color: var(--white);
-  border: none;
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 50%;
-  z-index: 10;
-  transition: all 0.3s ease;
-}
-.navBtn:hover {
-  background: var(--primary-blue);
-  transform: translateY(-50%) scale(1.1);
-}
-.prev { left: 10px; }
-.next { right: 10px; }
-
-/* Dots */
-.dots {
-  text-align: center;
-  margin-top: 15px;
-}
-.dot {
-  height: 12px;
-  width: 12px;
-  margin: 0 5px;
-  background-color: rgba(0,0,0,0.3);
-  border-radius: 50%;
-  display: inline-block;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.activeDot {
-  background-color: var(--primary-blue);
-  transform: scale(1.2);
+  transform: scale(1.05);
 }
 
 /* ---- Carousel Text ---- */
@@ -182,6 +126,7 @@
   text-align: center;
   background: var(--bg-light);
 }
+
 .benefits h2 {
   font-size: 2.2rem;
   color: var(--primary-dark-blue);
@@ -189,11 +134,13 @@
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
 .benefitGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
 }
+
 .card {
   background: var(--white);
   border-radius: 16px;
@@ -202,20 +149,24 @@
   transition: all 0.3s ease;
   text-align: center;
 }
+
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
 }
+
 .icon {
   font-size: 2rem;
   color: var(--primary-blue);
   margin-bottom: 1rem;
 }
+
 .card h4 {
   color: var(--primary-dark-blue);
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
+
 .card p {
   color: var(--text-light);
   line-height: 1.6;
@@ -226,6 +177,7 @@
   background: var(--white);
   padding: 5rem 8%;
 }
+
 .applications h2 {
   text-align: center;
   font-size: 2.2rem;
@@ -240,12 +192,14 @@
   max-width: 900px;
   margin: 0 auto;
 }
+
 .accordionItem {
   margin-bottom: 1rem;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 }
+
 .accordionTitle {
   display: flex;
   justify-content: space-between;
@@ -257,43 +211,50 @@
   font-size: 1.1rem;
   transition: background 0.3s;
 }
+
 .accordionTitle:hover {
   background: var(--primary-blue);
   color: var(--white);
 }
+
 .accordionContent {
   background: var(--white);
   overflow: hidden;
 }
 
-/* Content Wrapper */
 .contentWrapper {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
   justify-content: center;
   gap: 2rem;
   padding: 2rem;
 }
+
 .contentWrapper .left {
-  width: 200px;
-  height: 150px;
+  flex: 0 0 200px;
+  height: auto;
 }
+
 .contentWrapper .left img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: contain;
   border-radius: 16px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
+
 .contentWrapper .right {
-  flex: 1.2;
+  flex: 1 1 300px;
 }
+
 .contentWrapper .right p {
   font-size: 1rem;
   color: var(--text-light);
   line-height: 1.6;
   margin-bottom: 1rem;
 }
+
 .contentWrapper .right .details {
   color: var(--primary-blue);
   font-weight: 600;
@@ -305,16 +266,19 @@
   padding: 6rem 8%;
   text-align: center;
 }
+
 .process h2 {
   font-size: 2.2rem;
   color: var(--primary-dark-blue);
   margin-bottom: 3rem;
 }
+
 .timeline {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 2rem;
 }
+
 .step {
   background: var(--white);
   padding: 2rem;
@@ -322,10 +286,12 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
 }
+
 .step:hover {
   transform: translateY(-6px);
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
 }
+
 .stepNumber {
   width: 60px;
   height: 60px;
@@ -339,10 +305,12 @@
   border-radius: 50%;
   margin: 0 auto 1rem;
 }
+
 .step h4 {
   color: var(--primary-dark-blue);
   margin-bottom: 0.5rem;
 }
+
 .step p {
   color: var(--text-light);
   font-size: 0.95rem;
@@ -358,15 +326,18 @@
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
 }
+
 .ctaSection h2 {
   font-size: 2.2rem;
   margin-bottom: 1rem;
 }
+
 .ctaSection p {
   font-size: 1.1rem;
   margin-bottom: 2rem;
   opacity: 0.9;
 }
+
 .ctaBtn {
   display: inline-block;
   padding: 12px 32px;
@@ -377,6 +348,7 @@
   font-weight: 600;
   transition: all 0.3s ease;
 }
+
 .ctaBtn:hover {
   background: var(--accent-blue);
   color: var(--white);
@@ -391,15 +363,11 @@
     text-align: center;
     gap: 2rem;
   }
-  .overview img {
-    width: 100%;
-  }
   .carousel {
-    max-width: 450px;
-    aspect-ratio: 4/3;
+    max-width: 100%;
   }
   .carouselText {
-    max-width: 45%;
+    max-width: 100%;
     margin-top: 2rem;
   }
   .timeline {
@@ -415,16 +383,6 @@
 }
 
 @media (max-width: 768px) {
-  .overview {
-    padding: 4rem 5%;
-  }
-  .carousel, .carouselText {
-    max-width: 100%;
-    flex: none;
-  }
-  .carousel {
-    aspect-ratio: 16/9;
-  }
   .hero h1 {
     font-size: clamp(2rem, 10vw, 3rem);
   }
@@ -435,19 +393,6 @@
 }
 
 @media (max-width: 600px) {
-  .carousel img {
-    border-radius: 16px;
-  }
-  .navBtn {
-    font-size: 1.5rem;
-    padding: 0.3rem 0.8rem;
-  }
-  .hero h1 {
-    font-size: 2rem;
-  }
-  .hero p {
-    font-size: 1rem;
-  }
   .overview h2,
   .benefits h2,
   .applications h2,
