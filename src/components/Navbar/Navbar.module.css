@@ -127,7 +127,7 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0);
+  /* background: rgba(0, 0, 0, 0.353); */
   pointer-events: none;
   transition: background 0.3s ease;
   z-index: 999;
@@ -146,10 +146,10 @@
   width: 75%;
   max-width: 300px;
   height: 100vh;
-  background: rgba(171, 255, 255, 0.197);
+  background: rgba(34, 115, 115, 0.749);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 1px solid rgba(255, 255, 255, 0.464);
   padding: 80px 0;
   display: flex;
   flex-direction: column;
@@ -193,14 +193,14 @@
 .mobileMenu ul li a {
   font-size: 1.2rem;
   /* color: var(--text-on-dark); */
-  color: rgb(0, 199, 199);
+  color: rgb(0, 255, 255);
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
   display: block;
   padding: 10px 40px;
   border-radius: 6px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .mobileMenu li a:hover {
@@ -212,7 +212,7 @@
 
 .mobileMenu li a.active {
   color: var(--accent-gold);
-  font-weight: 700;
+  font-weight: 800;
 }
 
 /* ===================== Animations ===================== */
@@ -221,6 +221,13 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+@media (max-width: 800px) {
+.nav ul {
+  gap: 1.1rem;
+}
+
 }
 
 /* ===================== Responsive ===================== */
@@ -235,5 +242,57 @@
 
   .mobileMenu {
     display: flex;
+  }
+}
+
+
+/* ===================== Bottom Mobile Navigation ===================== */
+.bottomNav {
+  display: none;
+}
+
+/* Visible only on mobile */
+@media (max-width: 680px) {
+  .bottomNav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 40, 40, 0.7);
+    backdrop-filter: blur(15px) saturate(180%);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 999;
+  }
+
+  .bottomNavItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.7rem;
+    transition: all 0.3s ease;
+  }
+
+  .bottomNavItem svg {
+    margin-bottom: 4px;
+    transition: transform 0.3s ease;
+  }
+
+  .bottomNavItem:hover svg {
+    transform: scale(1.1);
+  }
+
+  .bottomNavItem:hover,
+  .activeBottom {
+    color: var(--accent-gold);
+  }
+
+  .header {
+    display: none; /* hide top navbar on mobile */
   }
 }

@@ -1,0 +1,132 @@
+/* =========================
+   Glassy Client Marquee
+   ========================= */
+.clientMarquee {
+  width: 100%;
+  overflow: hidden;
+  padding: 4rem 1.5rem;
+  background: linear-gradient(135deg, rgba(54, 169, 225, 0.25), rgba(54, 169, 225, 0.15));
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  border-radius: 1rem;
+  position: relative;
+  isolation: isolate;
+}
+
+/* ---------- Glow Layer ---------- */
+.clientMarquee::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.12), transparent 60%),
+              radial-gradient(circle at 80% 80%, rgba(54, 169, 225, 0.25), transparent 70%);
+  z-index: 0;
+}
+
+/* ---------- Title ---------- */
+.marqueeTitle {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.marqueeTitle {
+  font-size: 2.8rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-dark-blue);
+  margin-bottom: 2rem;
+  position: relative;
+}
+.marqueeTitle::after {
+  content: "";
+  width: 120px;
+  height: 4px;
+  background: var(--primary-blue);
+  display: block;
+  margin: 12px auto 0 auto;
+  border-radius: var(--border-radius-sm);
+}
+
+/* ---------- Container ---------- */
+.marqueeContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+/* ---------- Scrolling Track ---------- */
+.marqueeTrack {
+  display: flex;
+  gap: 2rem;
+  animation: scroll 22s linear infinite;
+  width: max-content;
+  z-index: 1;
+  padding: 1rem 0;
+}
+
+
+/* ---------- Company Item ---------- */
+.marqueeItem {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-dark-blue);
+  background: rgba(251, 238, 183, 0.503);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px) saturate(200%);
+  -webkit-backdrop-filter: blur(20px) saturate(200%);
+  border-radius: 2rem;
+  padding: 0.7rem 2rem;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(54, 169, 225, 0.2);
+
+  cursor: default;
+  text-transform: capitalize;
+}
+
+.marqueeItem:hover {
+  transform: translateY(-4px) scale(1.05);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 5px 1px rgba(54, 169, 225, 0.45);
+}
+
+/* ---------- Animations ---------- */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .clientMarquee {
+    padding: 3rem 1rem;
+    border-radius: 0.8rem;
+  }
+
+  .marqueeTitle {
+    font-size: 1.4rem;
+  }
+
+  .marqueeTrack {
+    gap: 1.2rem;
+    animation-duration: 28s;
+  }
+
+  .marqueeItem {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.4rem;
+  }
+}

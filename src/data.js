@@ -107,15 +107,16 @@ export const homeImages = {
 }
 
 export const portfolioItems = [
-  { type: "image", src: "/images/ourWorks/work1.jpg" },
-  { type: "image", src: "/images/ourWorks/work3.png" },
-  { type: "image", src: "/images/ourWorks/work4.png" },
-  { type: "image", src: "/images/ourWorks/work5.png" },
-  { type: "image", src: "/images/ourWorks/work7.png" },
-  { type: "image", src: "/images/ourWorks/work8.png" },
-  { type: "video", src: "/images/ourWorks/work2.mp4" },
-  { type: "video", src: "/images/ourWorks/work6.mp4" },
+  { type: "image", src: "/images/ourWorks/work1.jpg", category: "Powder" },
+  { type: "image", src: "/images/ourWorks/work3.png", category: "Wooden" },
+  { type: "image", src: "/images/ourWorks/work4.png", category: "PVD" },
+  { type: "image", src: "/images/ourWorks/work5.png", category: "Powder" },
+  { type: "image", src: "/images/ourWorks/work7.png", category: "Wooden" },
+  { type: "image", src: "/images/ourWorks/work8.png", category: "PVD" },
+  { type: "video", src: "/images/ourWorks/work2.mp4", category: "Powder" },
+  { type: "video", src: "/images/ourWorks/work6.mp4", category: "PVD" },
 ];
+
 
 export const serviceBannerImages = {
   powderCoatingImgs: '/images/services/powder/powderBanner.JPG',

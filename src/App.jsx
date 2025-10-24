@@ -28,7 +28,7 @@ export default function App() {
       {/* Scroll to top on route change */}
       <ScrollToTop />
 
-      <main style={{ paddingTop: 80 }}>
+      <main className="main-content">
         <Routes>
           <Route path="/" element={<Home openQuota={openQuota} />} />
           <Route path="/services" element={<Services />} />

@@ -3,8 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import styles from "./About.module.css";
 
 const milestones = [
-  { year: 1991, desc: "Founded Super Coat" },
-  { year: 1995, desc: "Established Classic Powder Coat" },
+  { year: 1991, desc: "Established Classic Powder Coat" },
   { year: 1999, desc: "Launched Classic Coating" },
   { year: 2008, desc: "Founded Classic Electrocoating Pvt. Ltd." },
   { year: 2022, desc: "Introduced Architectural Coating" },
@@ -20,24 +19,19 @@ const certifications = [
 
 const team = [
   {
-    name: "Andrew Tom Deo",
-    role: "Managing Director",
-    img: "https://via.placeholder.com/150",
+    name: "Mr. Ashok Jangid",
+    role: "Founder Of Powder Coating",
+    img: "/images/ourTeam/Ashok.png",
   },
   {
-    name: "Jems Black",
-    role: "General Manager",
-    img: "https://via.placeholder.com/150",
+    name: "Mr. Hardik Ashok Jangid",
+    role: "Founder Of PVD Coating",
+    img: "/images/ourTeam/Hardik.png",
   },
   {
-    name: "Robert Mil",
-    role: "Technical Manager",
-    img: "https://via.placeholder.com/150",
-  },
-  {
-    name: "Elon Mars",
-    role: "Project Manager",
-    img: "https://via.placeholder.com/150",
+    name: "Mr. Nikhil Jangid",
+    role: "Founder Of Wood Coatings.",
+    img: "/images/ourTeam/nikhil.png",
   },
 ];
 

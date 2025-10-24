@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import styles from "./Home.module.css";
 
 import { homeImages, portfolioItems } from "../../data";
-
+import ClientMarquee from "../ClientMarquee/ClientMarquee";
 
 // Services
 const services = [
@@ -63,36 +63,66 @@ const testimonials = [
 // Portfolio
 
 const Home = () => {
-  const carouselRef = useRef(null);
   const videoRefs = useRef([]);
-  const [isPaused, setIsPaused] = useState(false);
 
-  // Auto-scroll logic
+  const carouselRef = useRef(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
+
+  const [selectedCategory, setSelectedCategory] = useState("Wooden");
+  // Filter portfolio items based on selected category
+  const filteredItems = portfolioItems.filter(
+    (item) => item.category === selectedCategory
+  );
+
+  const categories = ["Wooden", "Powder", "PVD"]; // Filter buttons
+
+  // Setup drag constraints
   useEffect(() => {
     const carousel = carouselRef.current;
     if (!carousel) return;
 
-    let frameId;
-    const speed = 0.5; // adjust scroll speed
+    const totalWidth = carousel.scrollWidth;
+    const visibleWidth = carousel.offsetWidth;
+    setDragConstraints({ left: -(totalWidth - visibleWidth), right: 0 });
+  }, []);
 
-    const scroll = () => {
+  // Auto-scroll
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const card = carousel.firstChild;
+    const cardWidth =
+      card.offsetWidth + parseInt(getComputedStyle(carousel).gap);
+    const totalCards = testimonials.length;
+    let currentIndex = 0;
+
+    const interval = setInterval(() => {
       if (!isPaused) {
-        carousel.scrollLeft += speed;
-        // reset to start for infinite loop
-        if (
-          carousel.scrollLeft + carousel.offsetWidth >=
-          carousel.scrollWidth
-        ) {
-          carousel.scrollLeft = 0;
-        }
+        currentIndex = (currentIndex + 1) % totalCards;
+        carousel.scrollTo({
+          left: currentIndex * cardWidth,
+          behavior: "smooth",
+        });
       }
-      frameId = requestAnimationFrame(scroll);
-    };
+    }, 4000);
 
-    frameId = requestAnimationFrame(scroll);
-
-    return () => cancelAnimationFrame(frameId);
+    return () => clearInterval(interval);
   }, [isPaused]);
+
+  // Snap to nearest card
+  const handleSnap = () => {
+    const carousel = carouselRef.current;
+    const card = carousel.firstChild;
+    const cardWidth =
+      card.offsetWidth + parseInt(getComputedStyle(carousel).gap);
+    const index = Math.round(carousel.scrollLeft / cardWidth);
+    carousel.scrollTo({
+      left: index * cardWidth,
+      behavior: "smooth",
+    });
+  };
 
   const [showText, setShowText] = useState(false);
 
@@ -143,9 +173,9 @@ const Home = () => {
             coatings.
           </p>
           <div className={styles.heroCTA}>
-            <Link to="/services" className={styles.ctaBtn}>
+            {/* <Link to="/services" className={styles.ctaBtn}>
               View Services
-            </Link>
+            </Link> */}
             <Link to="/contact" className={styles.ctaBtnSecondary}>
               Request Quote
             </Link>
@@ -189,13 +219,28 @@ const Home = () => {
         </div>
       </section>
 
-
-      
       {/* ================= Portfolio Section ================= */}
       <section className={styles.portfolioSection}>
         <h2>Our Work</h2>
+
+        {/* Category Filter Buttons */}
+        <div className={styles.portfolioFilters}>
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              className={`${styles.filterBtn} ${
+                selectedCategory === cat ? styles.active : ""
+              }`}
+              onClick={() => setSelectedCategory(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Portfolio Grid */}
         <div className={styles.portfolioGrid}>
-          {portfolioItems.map((item, i) => (
+          {filteredItems.map((item, i) => (
             <motion.div
               key={i}
               className={styles.portfolioCard}
@@ -216,7 +261,6 @@ const Home = () => {
                     onTouchStart={() => videoRefs.current[i]?.play()}
                     onTouchEnd={() => videoRefs.current[i]?.pause()}
                   />
-                  <span className="playIcon">▶</span>
                 </>
               )}
             </motion.div>
@@ -224,8 +268,10 @@ const Home = () => {
         </div>
       </section>
 
+
+
       {/* ================= Process Section ================= */}
-      <section className={styles.processSection}>
+      {/* <section className={styles.processSection}>
         <h2>How We Work</h2>
         <div className={styles.processGrid}>
           <div className={styles.step}>
@@ -249,7 +295,10 @@ const Home = () => {
             <p>Rigorous inspection to ensure superior performance.</p>
           </div>
         </div>
-      </section>
+      </section> */}
+
+      <ClientMarquee />
+
 
       {/* ================= Testimonials Carousel ================= */}
       <section className={styles.testimonialCarouselSection}>
@@ -263,25 +312,26 @@ const Home = () => {
             className={styles.testimonialCarousel}
             ref={carouselRef}
             drag="x"
-            dragConstraints={{
-              left:
-                -carouselRef.current?.scrollWidth +
-                (carouselRef.current?.offsetWidth || 0),
-              right: 0,
-            }}
-            dragElastic={0.15}
+            dragConstraints={dragConstraints} // <-- apply constraints here
+            dragElastic={0.1} // small elasticity
+            onDragEnd={handleSnap}
             whileTap={{ cursor: "grabbing" }}
           >
-            {testimonials.map((t, index) => (
-              <div key={index} className={styles.testimonialCard}>
+            {testimonials.map((t, i) => (
+              <motion.div
+                key={i}
+                className={styles.testimonialCard}
+                whileTap={{ scale: 0.97 }}
+              >
                 <p>"{t.msg}"</p>
                 <h4>{t.name}</h4>
                 <span>{t.role}</span>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
+
       {/* ================= CTA Section ================= */}
       <section className={styles.ctaSection}>
         <h2>Ready to Transform Your Surfaces?</h2>
